@@ -2,7 +2,7 @@ import { Deporte } from "./Deporte";
 import { Equipo } from "./Equipo";
 
 export class Futbol extends Deporte {
-    constructor (public Equipo:Equipo) {
+    constructor (public Equipo:Equipo ) {
         super("Futbol", 11)
     }
 
