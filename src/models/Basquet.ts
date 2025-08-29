@@ -2,8 +2,8 @@ import { Deporte } from "./Deporte";
 import { Equipo } from "./Equipo";
 
 export class Basquet extends Deporte {
-    constructor (nombre:string, maxPorEquipo:number) {
-        super(nombre, maxPorEquipo)
+    constructor () {
+        super("Basquet", 5)
     }
 
     validar(equipo: Equipo): boolean {

@@ -1,9 +1,10 @@
 import { Partido } from "./Partido";
+import { IIdentificable } from "../interfaces/IIdentificable";
 
-export class Torneo {
+export class Torneo implements IIdentificable{
     private listaDePartidos: Partido[] = [];
 
-    constructor(public id: number, public nombre: string) {}
+    constructor(public id: string, public nombre: string) {}
 
     programarPartido(partido: Partido): void {
         if (this.listaDePartidos.find(p => p.id === partido.id)) {
@@ -22,8 +23,8 @@ export class Torneo {
         this.listaDePartidos.forEach(p => console.log(p.toString()));
     }
 
-    buscarPartido(id: number): Partido | undefined {
-        const partido = this.listaDePartidos.find(p => p.id === id);
+    buscarPartido(id: string): Partido | undefined {
+        const partido = this.listaDePartidos.find(p => p.id == id);
         if (!partido) {
             console.log(`No se encontró el partido con id ${id}`);
         }

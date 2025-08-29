@@ -1,12 +1,13 @@
 import { Deporte } from "./Deporte";
 import { Equipo } from "./Equipo";
 import { Resultado } from "./Resultado";
+import { IIdentificable } from "../interfaces/IIdentificable";
 
-export class Partido {
+export class Partido implements IIdentificable {
     public resultado?: Resultado;
 
     constructor(
-        public id: number,
+        public id: string,
         public local: Equipo,
         public visitante: Equipo,
         public deporte: Deporte,

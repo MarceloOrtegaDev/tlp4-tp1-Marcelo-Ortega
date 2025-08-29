@@ -6,15 +6,15 @@ export class Resultado {
         this.golesVisitante = golesVisitante
     }
 
-    toString(): void{
+    toString(): string{
         if(this.golesLocal < 0 || this.golesVisitante < 0){
-            return console.log("No pueden haber menos de 0 goles");
+            return "No pueden haber menos de 0 goles";
         } else if(this.golesLocal > this.golesVisitante) {
-            return console.log(`Ganó el equipo local por ${this.golesLocal} - ${this.golesVisitante}`);
+            return `Ganó el equipo local por ${this.golesLocal} - ${this.golesVisitante}`;
         } else if (this.golesLocal < this.golesVisitante) {
-            return console.log(`Ganó el equipo visitante por ${this.golesVisitante} - ${this.golesLocal}`);
+            return `Ganó el equipo visitante por ${this.golesVisitante} - ${this.golesLocal}`;
         } else {
-            return console.log(`Los equipos empataron ${this.golesLocal} - ${this.golesVisitante}`);
+            return `Los equipos empataron ${this.golesLocal} - ${this.golesVisitante}`;
         }  
     }
 }
