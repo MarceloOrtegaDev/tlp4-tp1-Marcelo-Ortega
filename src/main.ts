@@ -104,6 +104,6 @@ console.log(BocaJrs.toString)
 console.log(RiverBlate.toString)
 console.log(lakers.toString)
 console.log(bulls.toString)
-BocaJrs.cantidad
 console.log(partido.toString())
 console.log(partidoBasquet.toString())
+console.log(BocaJrs.listarIntegrantes())

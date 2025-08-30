@@ -11,9 +11,7 @@ export class Equipo implements ICompetidor {
     }
 
     get cantidad(): number {
-        console.log(`${this.nombre} tiene ${this.jugadores.length} jugadores`)
         return this.jugadores.length;
-
     }
 
     agregarJugador(jugador: Jugador): void {
