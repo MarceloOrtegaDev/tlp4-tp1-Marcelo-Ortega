@@ -16,7 +16,7 @@ export class Equipo implements ICompetidor {
 
     agregarJugador(jugador: Jugador): void {
         if (this.jugadores.find(j => j.id === jugador.id)) {
-            console.log(`El jugador ${jugador.nombre} ya está en el equipo`);
+            console.log(`No puedes repetir el id ${jugador.id} que le pertenece a ${jugador.nombre} en el equipo`);
             return;
         }
         this.jugadores.push(jugador);

@@ -4,69 +4,94 @@ import { Futbol } from "./models/Futbol";
 import { Jugador } from "./models/Jugador";
 import { Partido } from "./models/Partido";
 import { Resultado } from "./models/Resultado";
-
-
-
-
+import { Basquet } from "./models/Basquet";
 
 const laLiga = new Torneo("1", "La liga Argentina")
-const localBoca = new Equipo("River Plate")
-const visitanteRiver = new Equipo("Boca jrs")
+const RiverBlate = new Equipo("River Plate")
+const BocaJrs = new Equipo("Boca Jrs")
 
-const borja = new Jugador("1", "Borja", 33)
-const armani = new Jugador("2", "armani", 32)
-const lanzini = new Jugador("3", "lanzini", 31)
-const barco = new Jugador("4", "barco", 32)
-const mastan = new Jugador("5", "mastan", 19)
-const montiel = new Jugador("6", "montiel", 22)
+const jugadoresBoca = [
+    new Jugador("1", "Zeballos", 33),
+    new Jugador("2", "Langoni", 32),
+    new Jugador("3", "Marco", 31),
+    new Jugador("4", "Di Llolo", 32),
+    new Jugador("5", "Merentiel", 19),
+    new Jugador("6", "Paredes", 22),
+    new Jugador("7", "Pared", 22),
+]
 
-const chango = new Jugador("1", "Borja", 33)
-const langoni = new Jugador("2", "armani", 32)
-const pelegrino = new Jugador("3", "lanzini", 31)
-const diLOLO = new Jugador("4", "barco", 32)
-const merentiel = new Jugador("5", "mastan", 19)
-const paredes = new Jugador("6", "montiel", 22)
+const jugadoresRiver = [
+    new Jugador("1", "Borja", 33),
+    new Jugador("2", "armani", 32),
+    new Jugador("3", "lanzini", 31),
+    new Jugador("4", "barco", 32),
+    new Jugador("5", "mastan", 19),
+    new Jugador("6", "montiel", 22)
+]
 
-localBoca.agregarJugador(borja)
-localBoca.agregarJugador(armani)
-localBoca.agregarJugador(lanzini)
-localBoca.agregarJugador(barco)
-localBoca.agregarJugador(mastan)
-localBoca.agregarJugador(montiel)
+jugadoresBoca.map(B => {
+    BocaJrs.agregarJugador(B)
+})
+console.log(`||||||||||||||||||||||||||||||||||||||||||||||||||||||||`)
+jugadoresRiver.map(R => {
+    RiverBlate.agregarJugador(R)
+})
 
-
-visitanteRiver.agregarJugador(chango)
-visitanteRiver.agregarJugador(langoni)
-visitanteRiver.agregarJugador(pelegrino)
-visitanteRiver.agregarJugador(diLOLO)
-visitanteRiver.agregarJugador(merentiel)
-visitanteRiver.agregarJugador(paredes)
+console.log(`||||||||||||||||||||||||||||||||||||||||||||||||||||||||`)
 
 laLiga.listarPartidos()
 const futbol = new Futbol()
-const result = new Resultado(4, 5)
-
-const partido = new Partido("0", localBoca, visitanteRiver, futbol, result)
-
+const resultado = new Resultado(0, 1)
+const partido = new Partido("0", RiverBlate, BocaJrs, futbol, resultado)
 laLiga.programarPartido(partido)
 
-console.log(laLiga.buscarPartido("0"));
+if (!futbol.validar(BocaJrs) || !futbol.validar(RiverBlate)) {
+} else {
+    console.log("Validación Boca en Futbol:", futbol.validar(BocaJrs));
+    console.log("Validación River en Futbol:", futbol.validar(RiverBlate));
+    partido.jugar();
+    laLiga.listarPartidos()
+    console.log(laLiga.buscarPartido("0"));
+}
 
-laLiga.listarPartidos()
+console.log("||||| PARTIDO DE BASQUET ||||||")
+const lakers = new Equipo("Los Angeles devkers");
+const bulls = new Equipo("Chicago cools");
 
-partido.jugar()
-partido.resultado
+const lebron = new Jugador("10", "lebron Marcelo", 38);
+const davis = new Jugador("11", "Joao Emilio", 30);
+const russell = new Jugador("12", "Lucianno Jovic", 27);
+const reaves = new Jugador("13", "Sergio jhonson", 25);
+const hachimura = new Jugador("14", "Juan james", 26);
+const reddish = new Jugador("15", "trulimero", 25);
 
+lakers.agregarJugador(lebron);
+lakers.agregarJugador(davis);
+lakers.agregarJugador(russell);
+lakers.agregarJugador(reaves);
+lakers.agregarJugador(hachimura);
+lakers.agregarJugador(reddish)
 
+const lavine = new Jugador("20", "tun tun", 29);
+const derozan = new Jugador("21", "barilo", 34);
+const vucevic = new Jugador("22", "tralalero", 33);
+const cwhite = new Jugador("23", "barbijo", 24);
+const pwilliams = new Jugador("24", "palermo", 22);
 
+bulls.agregarJugador(lavine);
+bulls.agregarJugador(derozan);
+bulls.agregarJugador(vucevic);
+bulls.agregarJugador(cwhite);
+bulls.agregarJugador(pwilliams);
+const basquet = new Basquet();
+const resultBasquet = new Resultado(110, 105);
+const partidoBasquet = new Partido("1", lakers, bulls, basquet, resultBasquet);
+laLiga.programarPartido(partidoBasquet);
 
-
-
-
-
-
-
-
-
-
-
+if (!basquet.validar(lakers) || !basquet.validar(bulls)) {
+    partidoBasquet.jugar();
+} else {
+    console.log("Validación Lakers en Básquet:", basquet.validar(lakers));
+    console.log("Validación Bulls en Básquet:", basquet.validar(bulls));
+    laLiga.listarPartidos()
+}
