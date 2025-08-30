@@ -8,7 +8,7 @@ export class Jugador implements IIdentificable {
         public posicion?:string
     ){}
 
-    public toString(): string {
+    get toString(): string {
         return `Id del jugador: ${this.id} - De nombre ${this.nombre} tiene ${this.edad} años ${this.posicion ? `juega de ${this.posicion}`: " "} `;
     }
 }

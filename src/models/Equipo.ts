@@ -11,7 +11,9 @@ export class Equipo implements ICompetidor {
     }
 
     get cantidad(): number {
+        console.log(`${this.nombre} tiene ${this.jugadores.length} jugadores`)
         return this.jugadores.length;
+
     }
 
     agregarJugador(jugador: Jugador): void {
@@ -23,7 +25,7 @@ export class Equipo implements ICompetidor {
         console.log(`El equipo ${this.nombre} agregó a ${jugador.nombre}`);
     }
 
-    toString(): string {
+    get toString(): string {
         return `Los jugadores del equipo ${this.nombre} son: ${this.listarIntegrantes().join(', ')}`;
     }
 }

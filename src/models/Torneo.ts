@@ -30,12 +30,12 @@ export class Torneo implements IIdentificable {
         console.log(`Partido programado: ${partido.local.nombre} vs ${partido.visitante.nombre}`);
     }
 
-    listarPartidos(): void {
+    get listarPartidos(): void {
         if (this.listaDePartidos.length === 0) {
             console.log("No hay partidos programados");
             return;
         }
-        this.listaDePartidos.forEach(p => console.log(p.toString()));
+        return this.listaDePartidos.forEach(p => console.log(p.toString()));
     }
 
     buscarPartido(id: string): Partido | undefined {

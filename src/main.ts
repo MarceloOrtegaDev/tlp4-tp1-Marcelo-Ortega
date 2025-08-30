@@ -39,7 +39,7 @@ jugadoresRiver.map(R => {
 
 console.log(`||||||||||||||||||||||||||||||||||||||||||||||||||||||||`)
 
-laLiga.listarPartidos()
+laLiga.listarPartidos
 const futbol = new Futbol()
 const resultado = new Resultado(0, 1)
 const partido = new Partido("0", RiverBlate, BocaJrs, futbol, resultado)
@@ -50,7 +50,7 @@ if (!futbol.validar(BocaJrs) || !futbol.validar(RiverBlate)) {
     console.log("Validación Boca en Futbol:", futbol.validar(BocaJrs));
     console.log("Validación River en Futbol:", futbol.validar(RiverBlate));
     partido.jugar();
-    laLiga.listarPartidos()
+    laLiga.listarPartidos
     console.log(laLiga.buscarPartido("0"));
 }
 
@@ -72,7 +72,7 @@ lakers.agregarJugador(reaves);
 lakers.agregarJugador(hachimura);
 lakers.agregarJugador(reddish)
 
-const lavine = new Jugador("20", "tun tun", 29);
+const lavine = new Jugador("20", "tun tun", 29, "defensa");
 const derozan = new Jugador("21", "barilo", 34);
 const vucevic = new Jugador("22", "tralalero", 33);
 const cwhite = new Jugador("23", "barbijo", 24);
@@ -85,7 +85,7 @@ bulls.agregarJugador(cwhite);
 bulls.agregarJugador(pwilliams);
 const basquet = new Basquet();
 const resultBasquet = new Resultado(110, 105);
-const partidoBasquet = new Partido("1", lakers, bulls, basquet, resultBasquet);
+const partidoBasquet = new Partido("1", lakers, bulls, basquet, /*Aqui va el resultBasquet por si quiere probar con resultado de partido de basque*/);
 laLiga.programarPartido(partidoBasquet);
 
 if (!basquet.validar(lakers) || !basquet.validar(bulls)) {
@@ -93,5 +93,17 @@ if (!basquet.validar(lakers) || !basquet.validar(bulls)) {
 } else {
     console.log("Validación Lakers en Básquet:", basquet.validar(lakers));
     console.log("Validación Bulls en Básquet:", basquet.validar(bulls));
-    laLiga.listarPartidos()
+    laLiga.listarPartidos
 }
+
+
+console.log("/// PROBANDO LOS METODOS ///")
+
+console.log(lavine.toString)
+console.log(BocaJrs.toString)
+console.log(RiverBlate.toString)
+console.log(lakers.toString)
+console.log(bulls.toString)
+BocaJrs.cantidad
+console.log(partido.toString())
+console.log(partidoBasquet.toString())

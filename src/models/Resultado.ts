@@ -5,7 +5,7 @@ export class Resultado {
         this.golesLocal = golesLocal
         this.golesVisitante = golesVisitante
     }
-
+    
     toString(): string{
         if(this.golesLocal < 0 || this.golesVisitante < 0){
             return "No pueden haber menos de 0 goles";
